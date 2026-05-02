@@ -4,13 +4,15 @@ import { speakText } from '../services/geminiService';
 
 interface SpeechButtonProps {
   text: string;
+  audioUrl?: string;
   className?: string;
 }
 
-const SpeechButton: React.FC<SpeechButtonProps> = ({ text, className = "" }) => {
+const SpeechButton: React.FC<SpeechButtonProps> = ({ text, audioUrl, className = "" }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentSource, setCurrentSource] = useState<AudioBufferSourceNode | null>(null);
+  const [externalAudio, setExternalAudio] = useState<HTMLAudioElement | null>(null);
   const [fallbackAudio, setFallbackAudio] = useState<HTMLAudioElement | null>(null);
 
   const playFallback = () => {
@@ -28,6 +30,11 @@ const SpeechButton: React.FC<SpeechButtonProps> = ({ text, className = "" }) => 
       currentSource.stop();
       setCurrentSource(null);
     }
+    if (externalAudio) {
+      externalAudio.pause();
+      externalAudio.currentTime = 0;
+      setExternalAudio(null);
+    }
     if (fallbackAudio) {
       fallbackAudio.pause();
       fallbackAudio.currentTime = 0;
@@ -42,6 +49,29 @@ const SpeechButton: React.FC<SpeechButtonProps> = ({ text, className = "" }) => 
     if (isPlaying) {
       stopAll();
       return;
+    }
+
+    if (audioUrl) {
+      setIsLoading(true);
+      try {
+        const audio = new Audio(audioUrl);
+        audio.play().then(() => {
+          setIsLoading(false);
+          setIsPlaying(true);
+        }).catch(err => {
+          console.error("External audio failed", err);
+          throw err;
+        });
+
+        audio.onended = () => {
+          setIsPlaying(false);
+          setExternalAudio(null);
+        };
+        setExternalAudio(audio);
+        return;
+      } catch (err) {
+        console.error("External audio playback error, falling back to AI/Music", err);
+      }
     }
 
     setIsLoading(true);

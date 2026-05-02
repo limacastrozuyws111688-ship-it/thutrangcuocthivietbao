@@ -73,7 +73,7 @@ export const HeroSection = () => (
   </section>
 );
 
-export const SectionHeading = ({ children, id, textToRead }: { children: React.ReactNode, id: string, textToRead?: string }) => {
+export const SectionHeading = ({ children, id, textToRead, audioUrl }: { children: React.ReactNode, id: string, textToRead?: string, audioUrl?: string }) => {
   const contentText = textToRead || (typeof children === 'string' ? children : '');
   return (
     <h2 id={id} className="text-3xl md:text-5xl font-black text-slate-900 font-sans leading-tight mt-24 mb-12 pb-6 border-b-8 border-slate-50 flex items-center justify-between scroll-mt-24">
@@ -81,12 +81,12 @@ export const SectionHeading = ({ children, id, textToRead }: { children: React.R
         <span className="w-4 h-12 bg-[#34A853] mr-6 rounded-full block shadow-lg shadow-green-200"></span>
         {children}
       </div>
-      {contentText && <SpeechButton text={contentText} className="ml-4" />}
+      {contentText && <SpeechButton text={contentText} audioUrl={audioUrl} className="ml-4" />}
     </h2>
   );
 };
 
-export const QuoteBlock = ({ text, author }: { text: string, author?: string }) => (
+export const QuoteBlock = ({ text, author, audioUrl }: { text: string, author?: string, audioUrl?: string }) => (
   <blockquote className="my-20 px-10 py-12 bg-green-50/30 border-l-[12px] border-[#34A853] relative shadow-2xl shadow-green-900/5 rounded-r-[2rem] overflow-hidden group">
     <div className="absolute top-0 right-0 p-8 opacity-[0.05] pointer-events-none group-hover:rotate-12 transition-transform">
        <Volume2 className="w-48 h-48 text-[#34A853] -rotate-12" />
@@ -96,7 +96,7 @@ export const QuoteBlock = ({ text, author }: { text: string, author?: string }) 
         “{text}”
       </p>
       <div className="absolute top-0 right-0">
-        <SpeechButton text={text} className="shadow-none border-none bg-transparent hover:bg-green-100/50" />
+        <SpeechButton text={text} audioUrl={audioUrl} className="shadow-none border-none bg-transparent hover:bg-green-100/50" />
       </div>
     </div>
     {author && (
@@ -107,7 +107,7 @@ export const QuoteBlock = ({ text, author }: { text: string, author?: string }) 
   </blockquote>
 );
 
-export const ReadableText = ({ children, textToRead }: { children: React.ReactNode, textToRead?: string }) => {
+export const ReadableText = ({ children, textToRead, audioUrl }: { children: React.ReactNode, textToRead?: string, audioUrl?: string }) => {
   const contentText = textToRead || (typeof children === 'string' ? children : '');
   
   return (
@@ -115,10 +115,10 @@ export const ReadableText = ({ children, textToRead }: { children: React.ReactNo
       {contentText && (
         <>
           <div className="absolute -left-12 top-2 opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block">
-            <SpeechButton text={contentText} />
+            <SpeechButton text={contentText} audioUrl={audioUrl} />
           </div>
           <div className="lg:hidden flex justify-end mb-1">
-            <SpeechButton text={contentText} className="w-8 h-8" />
+            <SpeechButton text={contentText} audioUrl={audioUrl} className="w-8 h-8" />
           </div>
         </>
       )}

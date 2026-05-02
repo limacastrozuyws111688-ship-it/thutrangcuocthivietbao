@@ -8,6 +8,7 @@ import {
   MediaPlaceholder, StickyTOC, ReadableText, InteractiveGallery
 } from './components/ArticleComponents';
 import InteractiveQuiz from './components/InteractiveQuiz';
+import BackgroundMusic from './components/BackgroundMusic';
 
 export default function App() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -34,7 +35,10 @@ export default function App() {
             <div className="absolute top-1/3 -right-12 w-24 h-24 bg-[#4285F4] rounded-full opacity-5 blur-2xl"></div>
             <div className="absolute -bottom-10 left-1/2 w-32 h-32 bg-[#34A853] rounded-full opacity-5 blur-2xl"></div>
             
-            <ReadableText textToRead="Mạng xã hội đã định hình lại cách chúng ta tiếp nhận thông tin. Bên cạnh những giá trị kết nối vô tiền khoáng hậu, nó vô tình trở thành vườn ươm lý tưởng cho nấm độc tin giả. Những luận điệu xuyên tạc, thù địch không còn nằm trên những tờ truyền đơn in lậu, mà chúng len lỏi qua từng cú lướt màn hình.">
+            <ReadableText 
+              audioUrl="https://drive.google.com/uc?id=1SEdXriFhmAQ8HFharDg6_48nPlWhrNf6"
+              textToRead="Mạng xã hội đã định hình lại cách chúng ta tiếp nhận thông tin. Bên cạnh những giá trị kết nối vô tiền khoáng hậu, nó vô tình trở thành vườn ươm lý tưởng cho nấm độc tin giả. Những luận điệu xuyên tạc, thù địch không còn nằm trên những tờ truyền đơn in lậu, mà chúng len lỏi qua từng cú lướt màn hình."
+            >
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -45,15 +49,27 @@ export default function App() {
               </motion.p>
             </ReadableText>
 
-            <SectionHeading id="thuc-trang" textToRead="Virus vô hình, hậu quả hữu hình. 1. Thực trạng tin giả hiện nay.">\"Virus\" vô hình, hậu quả hữu hình</SectionHeading>
+            <SectionHeading 
+              id="thuc-trang" 
+              audioUrl="https://drive.google.com/uc?id=1c-iIvumsc4IGity9bT5dtkBgWD-xzhnA"
+              textToRead="Virus vô hình, hậu quả hữu hình. 1. Thực trạng tin giả hiện nay."
+            >
+              \"Virus\" vô hình, hậu quả hữu hình
+            </SectionHeading>
             
-            <ReadableText textToRead="Tin giả không đơn thuần là một câu nói dối vô hại. Ở cấp độ vĩ mô, nó là công cụ của các chiến dịch phá hoại tư tưởng, nhằm gây xói mòn niềm tin của nhân dân vào thể chế, vào sự lãnh đạo của Đảng và sự quản lý của Nhà nước.">
+            <ReadableText 
+              audioUrl="https://drive.google.com/uc?id=1PWUmSuXOgJRp0Be8YtZBfauIrBmYer6f"
+              textToRead="Tin giả không đơn thuần là một câu nói dối vô hại. Ở cấp độ vĩ mô, nó là công cụ của các chiến dịch phá hoại tư tưởng, nhằm gây xói mòn niềm tin của nhân dân vào thể chế, vào sự lãnh đạo của Đảng và sự quản lý của Nhà nước."
+            >
               <p className="mb-6">
                 Tin giả không đơn thuần là một câu nói dối vô hại. Ở cấp độ vĩ mô, nó là công cụ của các chiến dịch phá hoại tư tưởng, nhằm gây xói mòn niềm tin của nhân dân vào thể chế, vào sự lãnh đạo của Đảng và sự quản lý của Nhà nước.
               </p>
             </ReadableText>
             
-            <ReadableText textToRead="Chiến thuật của các thế lực thù địch ngày càng tinh vi. Chúng không bịa ra 100% câu chuyện. Thủ đoạn nguy hiểm nhất là trộn lẫn 70% sự thật với 30% dối trá. Một văn bản thật bị cắt xén ngữ cảnh; một hình ảnh cũ được gắn cho một sự kiện mới; một quyết sách kinh tế bị bóp méo thành thuyết âm mưu chính trị.">
+            <ReadableText 
+              audioUrl="https://drive.google.com/uc?id=1P6F_VkJAhbbPVrBZke9hPTPCzgELa4Qz"
+              textToRead="Chiến thuật của các thế lực thù địch ngày càng tinh vi. Chúng không bịa ra 100% câu chuyện. Thủ đoạn nguy hiểm nhất là trộn lẫn 70% sự thật với 30% dối trá. Một văn bản thật bị cắt xén ngữ cảnh; một hình ảnh cũ được gắn cho một sự kiện mới; một quyết sách kinh tế bị bóp méo thành thuyết âm mưu chính trị."
+            >
               <p className="mb-6">
                 Chiến thuật của các thế lực thù địch ngày càng tinh vi. Chúng không \"bịa\" ra 100% câu chuyện. Thủ đoạn nguy hiểm nhất là <strong>trộn lẫn 70% sự thật với 30% dối trá</strong>. Một văn bản thật bị cắt xén ngữ cảnh; một hình ảnh cũ được gắn cho một sự kiện mới; một quyết sách kinh tế bị bóp méo thành thuyết âm mưu chính trị.
               </p>
@@ -65,7 +81,10 @@ export default function App() {
               caption="Video: VTV - Lật tẩy những thủ đoạn cắt ghép hình ảnh nhằm chống phá chính quyền trên nền tảng mạng xã hội xuyên biên giới."
             />
 
-            <ReadableText textToRead="Sự nguy hiểm nằm ở tốc độ. Các thuật toán mạng xã hội ưu tiên hiển thị những nội dung giật gân, gây tranh cãi. Chỉ với một cú click Share, một thông tin độc hại đã có thể tiếp cận hàng triệu người trong vài giờ, gây hoang mang dư luận.">
+            <ReadableText 
+              audioUrl="https://drive.google.com/uc?id=1vYZvMHM2Y545gaXOBbJSmoGjOJ7C84-z"
+              textToRead="Sự nguy hiểm nằm ở tốc độ. Các thuật toán mạng xã hội ưu tiên hiển thị những nội dung giật gân, gây tranh cãi. Chỉ với một cú click Share, một thông tin độc hại đã có thể tiếp cận hàng triệu người trong vài giờ, gây hoang mang dư luận."
+            >
               <p className="mb-6">
                 Sự nguy hiểm nằm ở tốc độ. Các thuật toán mạng xã hội ưu tiên hiển thị những nội dung giật gân, gây tranh cãi. Chỉ với một cú click \"Share\", một thông tin độc hại đã có thể tiếp cận hàng triệu người trong vài giờ, gây hoang mang dư luận.
               </p>
@@ -73,13 +92,17 @@ export default function App() {
 
             <SectionHeading id="thu-doan" textToRead="Nhận diện thủ đoạn bình cũ rượu mới. Phần 2.">Nhận diện thủ đoạn \"bình cũ, rượu mới\"</SectionHeading>
             
-            <ReadableText textToRead="Trong bối cảnh công nghệ AI bùng nổ, ranh giới giữa thật và giả càng trở nên mong manh. Các thế lực thù địch không ngừng thay đổi phương thức hoạt động để qua mặt các công cụ rà quét của cơ quan chức năng.">
+            <ReadableText 
+              audioUrl="https://drive.google.com/uc?id=1oIaS3Ij0NZJRCYooC5iygVKg8r0xSPdo"
+              textToRead="Trong bối cảnh công nghệ AI bùng nổ, ranh giới giữa thật và giả càng trở nên mong manh. Các thế lực thù địch không ngừng thay đổi phương thức hoạt động để qua mặt các công cụ rà quét của cơ quan chức năng."
+            >
               <p className="mb-6">
                 Trong bối cảnh công nghệ AI bùng nổ, ranh giới giữa thật và giả càng trở nên mong manh. Các thế lực thù địch không ngừng thay đổi phương thức hoạt động để qua mặt các công cụ rà quét của cơ quan chức năng.
               </p>
             </ReadableText>
 
             <QuoteBlock 
+              audioUrl="https://drive.google.com/uc?id=1xoej727RMFeS35smJD96UoUp6USmV7V-"
               text="Tin giả đi vào nhận thức con người thông qua cảm xúc, đặc biệt là sự phẫn nộ và sợ hãi. Khi cảm xúc lên ngôi, tư duy phản biện thường bị tắt nghẽn. Đó là 'tử huyệt' mà các đối tượng lợi dụng."
               author="Phân tích từ Chuyên gia An ninh mạng Quốc gia"
             />
@@ -142,7 +165,13 @@ export default function App() {
             </div>
 
 
-            <SectionHeading id="phan-bac" textToRead="Phản bác không chỉ là nút Xóa bài. Phần 4.">Phản bác: Không chỉ là nút \"Xóa bài\"</SectionHeading>
+            <SectionHeading 
+              id="phan-bac" 
+              audioUrl="https://drive.google.com/uc?id=1jhs8JaOnxjsJUJbtpjpHE3AoAqgqc5xb"
+              textToRead="Phản bác không chỉ là nút Xóa bài. Phần 4."
+            >
+              Phản bác: Không chỉ là nút \"Xóa bài\"
+            </SectionHeading>
 
             <ReadableText textToRead="Đấu tranh với luận điệu xuyên tạc không thể chỉ dừng lại ở việc gỡ bỏ nội dung vi phạm hay xử phạt hành chính các cá nhân tung tin đồn. Trận địa thông tin đòi hỏi sự chủ động.">
               <p className="mb-6">
@@ -156,7 +185,13 @@ export default function App() {
               </p>
             </ReadableText>
 
-            <SectionHeading id="giai-phap" textToRead="Giải pháp và Khuyến nghị. Phần 5.">Giải pháp và Khuyến nghị</SectionHeading>
+            <SectionHeading 
+              id="giai-phap" 
+              audioUrl="https://drive.google.com/uc?id=1m_DEch8di2oEzx7B5B8LETJ5II0WkZ6X"
+              textToRead="Giải pháp và Khuyến nghị. Phần 5."
+            >
+              Giải pháp và Khuyến nghị
+            </SectionHeading>
             
             <div className="my-16 bg-[#f0f9ff] border border-blue-100 border-l-8 border-l-blue-600 p-8 md:p-10 shadow-sm rounded-r-lg scroll-mt-24">
               <h3 className="text-2xl font-black font-sans text-blue-950 mb-6 uppercase tracking-wide">
@@ -235,6 +270,7 @@ export default function App() {
            </button>
         </div>
       </footer>
+      <BackgroundMusic />
     </div>
   );
 }
